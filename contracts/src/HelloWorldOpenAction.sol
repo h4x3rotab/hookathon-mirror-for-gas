@@ -36,12 +36,10 @@ contract HelloWorldOpenAction is HubRestricted, IPublicationActionModule, LensMo
     function processPublicationAction(
         Types.ProcessActionParams calldata params
     ) external override onlyHub returns (bytes memory) {
-        string memory initMessage = _initMessages[params.publicationActedProfileId][params.publicationActedId];
-        (string memory actionMessage) = abi.decode(params.actionModuleData, (string));
-
-        bytes memory combinedMessage = abi.encodePacked(initMessage, " ", actionMessage);
-        _helloWorld.helloWorld(string(combinedMessage), params.transactionExecutor);
+        // string memory initMessage = _initMessages[params.publicationActedProfileId][params.publicationActedId];
+        (address target, bytes memory data) = abi.decode(params.actionModuleData, (address, bytes));
+        _helloWorld.claim(params.transactionExecutor, target, data);
         
-        return combinedMessage;
+        return abi.encode(params.transactionExecutor, target, data);
     }
 }

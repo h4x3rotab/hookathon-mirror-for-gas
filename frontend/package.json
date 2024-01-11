@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "mirror-for-gas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@lens-protocol/metadata": "^1.0.0",
+    "@lens-protocol/metadata": "^1.1.5",
     "@lens-protocol/react-web": "^2.0.0-alpha.22",
     "@lens-protocol/wagmi": "^3.0.0-alpha.19",
     "@radix-ui/react-slot": "^1.0.2",

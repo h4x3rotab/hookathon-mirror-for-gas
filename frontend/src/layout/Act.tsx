@@ -9,8 +9,8 @@ import { publicClient } from "../main";
 import { mode, uiConfig } from "../utils/constants";
 import { fetchInitMessage } from "../utils/fetchInitMessage";
 import { lensHubAbi } from "../utils/lensHubAbi";
-import { serializeLink } from "../utils/serializeLink";
 import { PostCreatedEventFormatted } from "../utils/types";
+import { Publication } from "./Publication";
 //import { ProfileId } from "@lens-protocol/metadata";
 
 const ActionBox = ({
@@ -24,18 +24,22 @@ const ActionBox = ({
   profileId?: number;
   refresh: () => void;
 }) => {
-  const [actionText, setActionText] = useState<string>("");
+  const [targetAddress, setTargetAddress] = useState<string>("");
   const [createState, setCreateState] = useState<string | undefined>();
   const [txHash, setTxHash] = useState<string | undefined>();
   const { data: walletClient } = useWalletClient();
 
   const executeHelloWorld = async (
     post: PostCreatedEventFormatted,
-    actionText: string
+    targetAddress: string,
   ) => {
+    if (!targetAddress.startsWith('0x')) {
+      setCreateState(`ERROR: invalid target address (${targetAddress})`)
+      return;
+    }
     const encodedActionData = encodeAbiParameters(
-      [{ type: "string" }],
-      [actionText]
+      [{ type: "address" }, { type: "bytes" }],
+      [targetAddress as `0x${string}` , '0x']
     );
 
     const args = {
@@ -138,11 +142,7 @@ const ActionBox = ({
         <p>ProfileID: {post.args.postParams.profileId}</p>
         <p>PublicationID: {post.args.pubId}</p>
         <p>Initialize Message: {fetchInitMessage(post)}</p>
-        <img
-          className="my-3 rounded-2xl"
-          src={serializeLink(post.args.postParams.contentURI)}
-          alt="Post"
-        />
+        <Publication contentURI={post.args.postParams.contentURI} />
         <Button asChild variant="link">
           <a
             href={`${uiConfig.blockExplorerLink}${post.transactionHash}`}
@@ -154,22 +154,22 @@ const ActionBox = ({
       </div>
       <div>
         <p className="mb-3">
-          Action message (will be emitted in HelloWorld event)
+          Claim target
         </p>
         <Input
           id={`initializeTextId-${post.args.pubId}`}
           type="text"
-          value={actionText}
-          onChange={(e) => setActionText(e.target.value)}
+          value={targetAddress}
+          onChange={(e) => setTargetAddress(e.target.value)}
           disabled={!profileId}
         />
       </div>
       {profileId && (
         <Button
           className="mt-3"
-          onClick={() => executeHelloWorld(post, actionText)}
+          onClick={() => {executeHelloWorld(post, targetAddress)}}
         >
-          Post Message
+          Claim Gas Sponsorship
         </Button>
       )}
       {profileId &&

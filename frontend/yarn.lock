@@ -25,18 +25,17 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@apollo/client@^3.8.5":
-  version "3.8.6"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.8.6.tgz#d90f2a9b0147d8fc96c7a867588b5b2165cc4085"
-  integrity sha512-FnHg3vhQP8tQzgBs6oTJCFFIbovelDGYujj6MK7CJneiHf62TJstCIO0Ot4A1h7XrgFEtgl8a/OgajQWqrTuYw==
+"@apollo/client@^3.8.7":
+  version "3.8.8"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.8.8.tgz#1a004b2e6de4af38668249a7d7790f6a3431e475"
+  integrity sha512-omjd9ryGDkadZrKW6l5ktUAdS4SNaFOccYQ4ZST0HLW83y8kQaSZOCTNlpkoBUK8cv6qP8+AxOKwLm2ho8qQ+Q==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
-    "@wry/context" "^0.7.3"
     "@wry/equality" "^0.5.6"
-    "@wry/trie" "^0.4.3"
+    "@wry/trie" "^0.5.0"
     graphql-tag "^2.12.6"
     hoist-non-react-statics "^3.3.2"
-    optimism "^0.17.5"
+    optimism "^0.18.0"
     prop-types "^15.7.2"
     response-iterator "^0.2.6"
     symbol-observable "^4.0.0"
@@ -865,62 +864,62 @@
   resolved "https://registry.yarnpkg.com/@ledgerhq/connect-kit-loader/-/connect-kit-loader-1.1.2.tgz#d550e3c1f046e4c796f32a75324b03606b7e226a"
   integrity sha512-mscwGroSJQrCTjtNGBu+18FQbZYA4+q6Tyx6K7CXHl6AwgZKbWfZYdgP2F+fyZcRUdGRsMX8QtvU61VcGGtO1A==
 
-"@lens-protocol/api-bindings@0.11.0-alpha.16":
-  version "0.11.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/api-bindings/-/api-bindings-0.11.0-alpha.16.tgz#e3bfcceeb2ed551cfb1f0843b30b73e103332a66"
-  integrity sha512-Ylsi91bPd2TXSbIr/oJCFRffTv8YA8BnweZEuVzSxKARZvOYdLLGAuQIe60mw1TblzPFfVllywoRGp7EdPR9fw==
+"@lens-protocol/api-bindings@0.11.0-alpha.24":
+  version "0.11.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/api-bindings/-/api-bindings-0.11.0-alpha.24.tgz#ddbb7417a9ebcca5617a0038d420c899f118a774"
+  integrity sha512-pIWH+9zo4AR5Q5Ew59e8qf6jkFL1iaHYhQO0p9NbYCMRHmT/66CedCji38VKJZ9JqblU2b2Xb9Ima+KGRow4JQ==
   dependencies:
-    "@lens-protocol/domain" "0.11.0-alpha.11"
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
-    graphql "^16.6.0"
+    "@lens-protocol/domain" "0.11.0-alpha.18"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
+    graphql "^16.8.1"
     graphql-tag "^2.12.6"
     tslib "^2.6.2"
 
-"@lens-protocol/blockchain-bindings@0.10.0-alpha.11":
-  version "0.10.0-alpha.11"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/blockchain-bindings/-/blockchain-bindings-0.10.0-alpha.11.tgz#de583f42a06cecd060eb4c74b87b8e9e2c4c7eaa"
-  integrity sha512-R56LMTqNr1XgH8A8Di6auF3r5vcfCzYJH+C5N12bFhjzgUUwhmQpSKkEnrn8l73KvhTz5pZWqxkCjVJjxWNfwQ==
+"@lens-protocol/blockchain-bindings@0.10.0-alpha.18":
+  version "0.10.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/blockchain-bindings/-/blockchain-bindings-0.10.0-alpha.18.tgz#09778d3ee9c297b330f7d71a360177fc74f45589"
+  integrity sha512-rPfZCT+Ky8ySlqy+DFDa4kyiItwjT6GMAgxrnUD5Rjh2Hedw4/pzGLNsItd6nLcR1hMDURiKpVYULZ8p0FeDYA==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/providers" "^5.7.2"
-    "@lens-protocol/domain" "0.11.0-alpha.11"
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
+    "@lens-protocol/domain" "0.11.0-alpha.18"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
     ethers "^5.7.2"
     tslib "^2.6.2"
 
-"@lens-protocol/domain@0.11.0-alpha.11":
-  version "0.11.0-alpha.11"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/domain/-/domain-0.11.0-alpha.11.tgz#2f27f237b416afe7cdb8fb8a63e42adcfca587f3"
-  integrity sha512-Y6EfbZ1dRz9GROgEmZ+yJLficgGTL3Bj7AD+o2E5V44VxzMWMdrUIWkRxCEx+SYi+uXFj3N6pwr9jlPheow9Zw==
+"@lens-protocol/domain@0.11.0-alpha.18":
+  version "0.11.0-alpha.18"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/domain/-/domain-0.11.0-alpha.18.tgz#c28dac64b5f0ca4e64c1ab3f699c2d08df183650"
+  integrity sha512-yMoKmF17xCSSaDzo25fe27OWrQd/3FUdh3nuKUUHZ/e+PXz/sPNrjc089+PqLicXbOWswRO3+02fwkhFvwD5KA==
   dependencies:
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
     tslib "^2.6.2"
 
-"@lens-protocol/metadata@^1.0.0":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/metadata/-/metadata-1.0.3.tgz#61d169ceaa445eef62f00d132c6f294406d95972"
-  integrity sha512-8Ql91urT1Anvrndu+QpNm7nMueJIHXQTilH50LjSbfLr1v6LMAeFpa55ZWMxNofvlAMdiJt/bUVjWaXoRP6FfQ==
+"@lens-protocol/metadata@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/metadata/-/metadata-1.1.5.tgz#c32c1eb49caf0960e861cad1dfcb97bc6d572dc8"
+  integrity sha512-leO6Vq4VCV8jkfB2uHwVuyHjz1kwse2JB0avFXhGm3ZBYsQ7Hazw7IlR58wlcn3TEqg5a4DkQ9uG6l/idkbSPQ==
   dependencies:
     uuid "^9.0.1"
 
-"@lens-protocol/react-web@^2.0.0-alpha.16":
-  version "2.0.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/react-web/-/react-web-2.0.0-alpha.16.tgz#0f4226d2c85c2008dd1d16d76b6d07d5fbcf61e5"
-  integrity sha512-BScO1ePnQvZlg0FLZ2uIlFwzbRe93hC6blU2B0IJeQ+eBqXawL4dS3Rry0KfxR52tm8o3rdLAvSVKSekFmTF+w==
+"@lens-protocol/react-web@^2.0.0-alpha.22":
+  version "2.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/react-web/-/react-web-2.0.0-alpha.27.tgz#dcc5601cd5215bd8c73241e30b984c8a082905b5"
+  integrity sha512-uDIgDAXflOL6vPzH+DhujP+/Zg/xw+K2sOoPWClH9eub3az7ULg5Vox9JeyqEXq9o31w95DnOf8hnD1KthAt9w==
   dependencies:
-    "@lens-protocol/api-bindings" "0.11.0-alpha.16"
-    "@lens-protocol/domain" "0.11.0-alpha.11"
-    "@lens-protocol/react" "2.0.0-alpha.16"
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
-    "@lens-protocol/storage" "0.7.5-alpha.4"
+    "@lens-protocol/api-bindings" "0.11.0-alpha.24"
+    "@lens-protocol/domain" "0.11.0-alpha.18"
+    "@lens-protocol/react" "2.0.0-alpha.27"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
+    "@lens-protocol/storage" "0.7.5-alpha.7"
     tslib "^2.6.2"
 
-"@lens-protocol/react@2.0.0-alpha.16":
-  version "2.0.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/react/-/react-2.0.0-alpha.16.tgz#d5ce90b4a777e2421051b73fd60e461b8d769d52"
-  integrity sha512-UurJd2P7pTVvXOxY4zS2sBV0XHhQtZDHBTjMMW6UZPF0QBMg41aOTUcv5UiB/HnFoceAZVhuoqsbL/QwGqTqOg==
+"@lens-protocol/react@2.0.0-alpha.27":
+  version "2.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/react/-/react-2.0.0-alpha.27.tgz#6f28cca5511a600f3676601c85466187fc244027"
+  integrity sha512-HoPMtzs4nvYs/cCvrLsXQI4xu/44QDmtP4BGB9K1I9pYM+VvAVU4wUXYXgJmbEANMh84L/dDvDHJ15+0uKEQoA==
   dependencies:
-    "@apollo/client" "^3.8.5"
+    "@apollo/client" "^3.8.7"
     "@ethersproject/abstract-signer" "^5.7.0"
     "@ethersproject/address" "^5.7.0"
     "@ethersproject/bignumber" "^5.7.0"
@@ -928,43 +927,42 @@
     "@ethersproject/hash" "^5.7.0"
     "@ethersproject/providers" "^5.7.2"
     "@ethersproject/wallet" "^5.7.0"
-    "@lens-protocol/api-bindings" "0.11.0-alpha.16"
-    "@lens-protocol/blockchain-bindings" "0.10.0-alpha.11"
-    "@lens-protocol/domain" "0.11.0-alpha.11"
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
-    "@lens-protocol/storage" "0.7.5-alpha.4"
-    graphql "^16.6.0"
+    "@lens-protocol/api-bindings" "0.11.0-alpha.24"
+    "@lens-protocol/blockchain-bindings" "0.10.0-alpha.18"
+    "@lens-protocol/domain" "0.11.0-alpha.18"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
+    "@lens-protocol/storage" "0.7.5-alpha.7"
+    graphql "^16.8.1"
     jwt-decode "^3.1.2"
     lodash "^4.17.21"
     tslib "^2.6.2"
-    uuid "^9.0.0"
-    zod "^3.22.0"
+    uuid "^9.0.1"
+    zod "^3.22.4"
 
-"@lens-protocol/shared-kernel@0.11.0-alpha.6":
-  version "0.11.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/shared-kernel/-/shared-kernel-0.11.0-alpha.6.tgz#beb88822f04bd91dcac0a0d5c056eafc22665f14"
-  integrity sha512-nKBIuLY+pzvQ0+/b2fyHqq93xbfQWFj1rFuAqMYrjodp9QA35GwSBUb4ImBRpvPir0II5KjK1ge4rZ/nMaAvSg==
+"@lens-protocol/shared-kernel@0.11.0-alpha.8":
+  version "0.11.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/shared-kernel/-/shared-kernel-0.11.0-alpha.8.tgz#dca7deffbdb1eac9c2ce504485298b81dcdb7ba6"
+  integrity sha512-/hL8ChEc8QimdMrOVSzZO9qWBB5aYsUYUBBwU8ac4+N+OrxO90tcyesTQHN+8Ks4CDb/ZDZiBMs/dNWnn0uybw==
   dependencies:
     decimal.js "^10.4.3"
     lodash "^4.17.21"
     tslib "^2.6.2"
-    uuid "^9.0.0"
 
-"@lens-protocol/storage@0.7.5-alpha.4":
-  version "0.7.5-alpha.4"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/storage/-/storage-0.7.5-alpha.4.tgz#ad0f111a47761d3802a1d56f6e76e21e23b7eff7"
-  integrity sha512-k8Art0Rib+z8Ne8LEGgHhkdPp2PDd8fvERbbwrFCjMcL9aRvlzp6QTrmDzpMZ5CV8M9A3BALGPZyv/p6wg9wZg==
+"@lens-protocol/storage@0.7.5-alpha.7":
+  version "0.7.5-alpha.7"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/storage/-/storage-0.7.5-alpha.7.tgz#b123bea49a54b058b28b59a08aaa791aeb3e79d2"
+  integrity sha512-TCUAFOCE1O8yJw53UCBARGlU5FIrqvcLAXBEEdsj5+kmKwGgSCAlbNAn5yL5N5LW4Dk93wNIVDvfxTdoUQHejw==
   dependencies:
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
     tslib "^2.6.2"
-    zod "^3.22.0"
+    zod "^3.22.4"
 
-"@lens-protocol/wagmi@alpha":
-  version "3.0.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/@lens-protocol/wagmi/-/wagmi-3.0.0-alpha.13.tgz#ede05e318565dcee668c2bc3fb8e05b6e4218a7d"
-  integrity sha512-Kr8mCKqxO1GO9yQpiFGVPWBfWhSz2BtzGcqaYJksMfmQk8PA48m/qdCaBM7xP7mKEkiOfl/12LT0A59h8bkGMA==
+"@lens-protocol/wagmi@^3.0.0-alpha.19":
+  version "3.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@lens-protocol/wagmi/-/wagmi-3.0.0-alpha.24.tgz#5d8e6c615b5470d822f20428304b762f4e7b1082"
+  integrity sha512-46WwfmONiX4S1gekNZojnNRr0EH6BzX9S2x7wUPVPpUvJJivjawOHvnOAERi5bxiplA5dcEbY/5dkjkRgsyqiw==
   dependencies:
-    "@lens-protocol/shared-kernel" "0.11.0-alpha.6"
+    "@lens-protocol/shared-kernel" "0.11.0-alpha.8"
 
 "@lit-labs/ssr-dom-shim@^1.0.0", "@lit-labs/ssr-dom-shim@^1.1.0", "@lit-labs/ssr-dom-shim@^1.1.2":
   version "1.1.2"
@@ -2124,7 +2122,14 @@
     react-dom ">=17"
     vue ">=3"
 
-"@wry/context@^0.7.0", "@wry/context@^0.7.3":
+"@wry/caches@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@wry/caches/-/caches-1.0.1.tgz#8641fd3b6e09230b86ce8b93558d44cf1ece7e52"
+  integrity sha512-bXuaUNLVVkD20wcGBWRyo7j9N3TxePEWFZj2Y+r9OoUzfqmavM84+mFykRicNsBqatba5JLay1t48wxaXaWnlA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@wry/context@^0.7.0":
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/@wry/context/-/context-0.7.4.tgz#e32d750fa075955c4ab2cfb8c48095e1d42d5990"
   integrity sha512-jmT7Sb4ZQWI5iyu3lobQxICu2nC/vbUhP0vIdd6tHC9PTfenmRmuIFqktc6GH9cgi+ZHnsLWPvfSvc4DrYmKiQ==
@@ -2142,6 +2147,13 @@
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@wry/trie/-/trie-0.4.3.tgz#077d52c22365871bf3ffcbab8e95cb8bc5689af4"
   integrity sha512-I6bHwH0fSf6RqQcnnXLJKhkSXG45MFral3GxPaY4uAl0LYDZM+YDVDAiU9bYwjTuysy1S0IeecWtmq1SZA3M1w==
+  dependencies:
+    tslib "^2.3.0"
+
+"@wry/trie@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@wry/trie/-/trie-0.5.0.tgz#11e783f3a53f6e4cd1d42d2d1323f5bc3fa99c94"
+  integrity sha512-FNoYzHawTMk/6KMQoEG5O4PuioX19UbwdQKF44yw0nLfOypfQdjtfZzo/UIJWAJ23sNIFbD1Ug9lbaDGMwbqQA==
   dependencies:
     tslib "^2.3.0"
 
@@ -3231,7 +3243,7 @@ graphql-tag@^2.12.6:
   dependencies:
     tslib "^2.1.0"
 
-graphql@^16.6.0:
+graphql@^16.8.1:
   version "16.8.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.8.1.tgz#1930a965bef1170603702acdb68aedd3f3cf6f07"
   integrity sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==
@@ -3816,11 +3828,12 @@ once@^1.3.0, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-optimism@^0.17.5:
-  version "0.17.5"
-  resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.17.5.tgz#a4c78b3ad12c58623abedbebb4f2f2c19b8e8816"
-  integrity sha512-TEcp8ZwK1RczmvMnvktxHSF2tKgMWjJ71xEFGX5ApLh67VsMSTy1ZUlipJw8W+KaqgOmQ+4pqwkeivY89j+4Vw==
+optimism@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.18.0.tgz#e7bb38b24715f3fdad8a9a7fc18e999144bbfa63"
+  integrity sha512-tGn8+REwLRNFnb9WmcY5IfpOqeX2kpaYJ1s6Ae3mn12AeydLkR3j+jSCmVQFoXqU8D41PAJ1RG1rCRNWmNZVmQ==
   dependencies:
+    "@wry/caches" "^1.0.0"
     "@wry/context" "^0.7.0"
     "@wry/trie" "^0.4.3"
     tslib "^2.3.0"
@@ -4709,7 +4722,7 @@ uuid@^8.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
-uuid@^9.0.0, uuid@^9.0.1:
+uuid@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"
   integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
@@ -4907,7 +4920,7 @@ zen-observable@0.8.15:
   resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.15.tgz#96415c512d8e3ffd920afd3889604e30b9eaac15"
   integrity sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
 
-zod@^3.22.0:
+zod@^3.22.4:
   version "3.22.4"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.22.4.tgz#f31c3a9386f61b1f228af56faa9255e845cf3fff"
   integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==

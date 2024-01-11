@@ -1,4 +1,4 @@
-export const network: string = "polygon"; // options: 'polygon', 'mumbai'
+export const network: string = "mumbai"; // options: 'polygon', 'mumbai'
 
 // mode flag sets whether to fetch smart post instances from Lens API or querying directly from contract events
 // Mumbai open actions are always indexed on the Lens API, Polygon actions need to be allowlisted on the API (though they are permisionless on-chain)
@@ -17,7 +17,12 @@ interface UiConfig {
   simpleCollectModuleContractAddress: `0x${string}`;
   blockExplorerLink: string;
   rpc: string;
+  contentApi: string;
 }
+
+const common = {
+  contentApi: import.meta.env.VITE_CONTENT_API
+};
 
 export const uiConfig: UiConfig =
   network === "polygon"
@@ -35,12 +40,13 @@ export const uiConfig: UiConfig =
         rpc: `https://polygon-mainnet.g.alchemy.com/v2/${
           import.meta.env.VITE_ALCHEMY_POLYGON_API_KEY
         }`,
+        ...common,
       }
     : {
-        helloWorldContractAddress: "0x4ae4400c4f965F818f3E0b66e9b0ef5721146Bc0",
-        helloWorldContractStartBlock: 42984295,
-        openActionContractAddress: "0x038D178a5aF79fc5BdbB436daA6B9144c669A93F",
-        openActionContractStartBlock: 42984295,
+        helloWorldContractAddress: "0x481ce1a6EEC3016d1E61725B1527D73Df1c393a5",
+        helloWorldContractStartBlock: 44608113,
+        openActionContractAddress: "0xFa28d88Fab1980F8811440576AD292F708D9d189",
+        openActionContractStartBlock: 44608113,
         lensHubProxyAddress: "0x4fbffF20302F3326B20052ab9C217C44F6480900",
         collectActionContractAddress:
           "0x4FdAae7fC16Ef41eAE8d8f6578d575C9d64722f2",
@@ -50,4 +56,5 @@ export const uiConfig: UiConfig =
         rpc: `https://polygon-mumbai.g.alchemy.com/v2/${
           import.meta.env.VITE_ALCHEMY_MUMBAI_API_KEY
         }`,
+        ...common,
       };

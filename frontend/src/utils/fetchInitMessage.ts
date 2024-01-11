@@ -6,9 +6,13 @@ export const fetchInitMessage = (post: PostCreatedEventFormatted) => {
     const actionModules = post.args.postParams.actionModules;
     const index = actionModules.indexOf(uiConfig.openActionContractAddress);
     const actionModuleInitData = post.args.postParams.actionModulesInitDatas[index];
+    try{
     const encodedInitData = ethers.utils.defaultAbiCoder.decode(
         ["string"],
         actionModuleInitData
     );
     return encodedInitData;
+    }catch(e) {
+        debugger;
+    }
 }

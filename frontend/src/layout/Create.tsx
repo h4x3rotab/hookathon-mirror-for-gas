@@ -8,6 +8,8 @@ import { publicClient } from "../main";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+import { textOnly } from "@lens-protocol/metadata";
+
 export const Create = () => {
   const { address, profileId, refresh } = useLensHelloWorld();
   const { data: walletClient } = useWalletClient();
@@ -16,6 +18,22 @@ export const Create = () => {
   const [txHash, setTxHash] = useState<string | undefined>();
   const [uri, setURI] = useState<string>("");
   const [initializeText, setInitializeText] = useState<string>("");
+
+  const [textContent, setTextContent] = useState<string>('');
+
+  const uploadContent = async () => {
+    const metadata = textOnly({
+      content: textContent,
+    });
+    
+    const resp = await fetch(uiConfig.contentApi, {
+      method: 'POST',
+      body: JSON.stringify(metadata),
+    });
+    const {contentURI} = await resp.json();
+    console.log({contentURI});
+    setURI(contentURI);
+  }
 
   const createPost = async () => {
     const encodedInitData = encodeAbiParameters(
@@ -98,6 +116,18 @@ export const Create = () => {
         {address && profileId && (
           <div className="flex flex-1 flex-col">
             <div className="flex flex-1 flex-col">
+              <p className="my-2">Upload Content</p>
+              <Input
+                type="text"
+                value={textContent}
+                placeholder="Hello World"
+                onChange={(e) => setTextContent(e.target.value)}
+              />
+              <Button className="mt-3" onClick={uploadContent}>
+                Submit to IPFS
+              </Button>
+            </div>
+            <div className="flex flex-1 flex-col">
               <p className="my-2">Content URI (link to content for the post)</p>
               <Input
                 type="text"
@@ -105,7 +135,7 @@ export const Create = () => {
                 placeholder="URI"
                 onChange={(e) => setURI(e.target.value)}
               />
-              <p className="my-2">
+              {/* <p className="my-2">
                 Initialize message (will be emitted in HelloWorld event)
               </p>
               <Input
@@ -113,7 +143,7 @@ export const Create = () => {
                 type="text"
                 value={initializeText}
                 onChange={(e) => setInitializeText(e.target.value)}
-              />
+              /> */}
               <div className="my-3 mx-auto">
                 <input
                   type="checkbox"
