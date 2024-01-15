@@ -32,7 +32,7 @@ function Nav() {
   return (
     <nav className="flex flex-1 border-b">
       <div className="px-4 py-3 flex-1">
-        <p className="text-sm">Lens Smart Post Starter</p>
+        <p className="text-sm">Proof-of-Shilling for Sponsored Gas</p>
       </div>
       {handle && (
         <>

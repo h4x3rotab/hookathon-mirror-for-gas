@@ -1,130 +1,67 @@
-# Lens Hello World Smart Post
+# Lens Open Action: Proof-of-Shilling for sponsored gas
 
-This repo contains smart contracts and a UI which demonstrates a Lens Smart Post to call a helloWorld() function on an external contract.
+Onboarding new people to Web3 is hard. Users will need to learn the crypto wallets, buy gas token from exchanges, and bridge to a L2 to pay the gas fee, until they can really try a dapp.
 
-The Polygon mainnet version of the site is live [here](https://lens-hello-world-open-action.vercel.app/)
+On the other hand, new technoligies are created to offer users a seamless UX:
 
+- Account Abstraction: allow users to create a wallet with their social account (e.g. Google)
+- Web3 Social: platforms like Lens can allow users to interact without paying gas
 
-- [Integration Guide](#integration-guide)
+This project aims to provide users an easy way to get onbard a dapp by combining AA and Web3 Social:
 
-- [Frontend](#frontend)
+- The dapp developer can post some ads on Lens
+- An user can claim a free AA account with gas sponsored, if the user liked or mirrored the dapp developer's ads post
+- The user can start to use the dapp for free
 
-- [Smart Contracts](#smart-contracts)
+In this way, users get free access to the dapp, and the dapp developer can reach out to more users with the help of the social media for free. It creates a win-win situation.
 
+## Walkthrough
 
+<a href="https://www.loom.com/share/70a466469ecf4d498ae1e409796afd5f?sid=f517025a-9b4b-489b-a7a6-69ecc696ac2a">![](https://cdn.loom.com/sessions/thumbnails/70a466469ecf4d498ae1e409796afd5f-with-play.gif)</a>
 
-## Integration Guide 
-
-The deployed action module addresses are: 
-
-- [Polygon Mainnet](https://polygonscan.com/address/0x7c4fAeef5ba47a437DFBaB57C016c1E706F56fcf)
-
-- [Mumbai Testnet](https://mumbai.polygonscan.com/address/0x038D178a5aF79fc5BdbB436daA6B9144c669A93F) 
-
-
-To integrate this open action, support must be added to create and execute the action.
-
-### Create Post
-
-To create a publication with this action module attached there are two relavent fields:
-
-`actionModules` - array of addresses which should contain module addresses above ^
-
-`actionModuleInitDatas` - array of bytes data, for this action there is one parameter, a string containing an initialize message (which is contained in the Hello World event output)
+## Architecture
 
 
-An integration for this action should display an input box for the initialize string and encode it to be passed in the initDatas as follows:
+## Deploy
 
-```
-// viem
-const encodedInitDataVIem = encodeAbiParameters(
-    [{ type: "string" }],
-    [initializeString]
-);
+The project is tested on Mumbai testnet. So we assume the deployment will be on Mumbai. You will need a bunch of service API. Read through the full deployment process to learn the requirements before starting.
 
-// ethers v5
-const encodedInitDataEthers = ethers.utils.defaultAbiCoder.encode(
-    ["string"],
-    [initializeString]
-);
-```
+### 1. Deploy Open Actions
 
-For a complete example of creating a post with this open action module with viem, see [here](https://github.com/defispartan/lens-hello-world-open-action/blob/master/frontend/src/layout/Create.tsx)
+You should copy `contracts/.env.example` to `contracts/.env`, and fill in the env variables accordingly. Required info:
 
-
-
-### Execute
-
-A publication with this open action will contain the module address and initialize data from the "Create Post" step contained in it's `postParams` field. To decode the initialize string:
+- a Polygonscan API key
+- a deployer private key with Mumbai testnet token
+- a Mumbai RPC address
 
 ```
-const index = actionModules.indexOf(openActionContractAddress);
-const actionModuleInitData = post.args.postParams.actionModulesInitDatas[index];
-
-// viem
-const decodedInitializeDataViem = decodeAbiParameters(
-  [
-    { type: 'string' },
-  ],
-  actionModuleInitData,
-)
-
-// ethers v5
-const decodedInitializeDataEthers = ethers.utils.defaultAbiCoder.decode(
-    ["string"],
-    actionModuleInitData
-);
+cd contracts
+forge build
+forge script script/HelloWorld.s.sol:HelloWorldScript --fork-url <your-munbai-rpc> --broadcast --verify
 ```
 
-To allow users to execute this action, an integration should display the decoded initialize string, an input box for the user to set an action string, and button which trigger the action.
+The script will output the deployed contract addresses of `HelloWorld` and `HelloWorldOpenAction`. Save it for the next step.
 
-When the button is pressed, `act` should be called on the `LensHub` contract, with relavent fields:
+### 2. Start the Frontend
 
-- publicationActedProfileId - Profile ID of action publisher, `args.postParams.profileId`
+You should copy `frontend/.env.example` to `frontend/.env` and fill in the env variables accordingly. Required info:
 
-- publicationActedId - ID of publication with this action attached, `args.pubId`
+- Alchemy API key for Munbai
+- WalletConnect project ID (get one for free on WalletConnect)
 
-- actionModuleAddress - module contract address from above
+Next, open `frontend/src/utils/constants.tsx`, and change the variables listed below:
 
-- actionModuleData - bytes data, for this action there is one parameter encoded, a string containing an action message (which is also contained in the Hello World event output)
+- `helloWorldContractAddress`: The address you got from the last step
+- `openActionContractAddress`: The address you got from the last step
+- `helloWorldContractStartBlock` and `openActionContractStartBlock`: The block number when your contracts are deployed.
 
+Finally run:
 
-The actionModuleData can be encoded identically to the initializeData.
+```
+cd frontend
+yarn
+yarn dev
+```
 
-For a complete example of executing this open action on a publication with viem, see [here](https://github.com/defispartan/lens-hello-world-open-action/blob/master/frontend/src/layout/Act.tsx)
+You will get a frontend running now. Please hold on and follow the instructions on the AA project: <https://github.com/h4x3rotab/lens-gasless-nft-minter-v2>.
 
-
-
-## Smart Contracts
-
-
-### Polygon Mainnet
-
-[HelloWorld.sol](https://polygonscan.com/address/0xCAE0AD610762F917E249E26a64ac06bcDE926d9c) 
-
-[HelloWorldOpenAction.sol](https://polygonscan.com/address/0x7c4fAeef5ba47a437DFBaB57C016c1E706F56fcf) 
-
-### Mumbai Testnet
-
-[HelloWorld.sol](https://mumbai.polygonscan.com/address/0x4ae4400c4f965F818f3E0b66e9b0ef5721146Bc0) 
-
-[HelloWorldOpenAction.sol](https://mumbai.polygonscan.com/address/0x038D178a5aF79fc5BdbB436daA6B9144c669A93F) 
-
-### To Deploy Your Own
-
-1.) Switch to contracts directory (`cd contracts`) and setup environment variables: copy `.env.example` to `.env`, input deployment values values in `.env`, and run `source .env` (or equivalent on your OS) 
-
-2.) Run script to deploy `HelloWorld.sol` and `HelloWorldOpenAction.sol` to Mumbai: `forge script script/HelloWorld.s.sol:HelloWorldScript --rpc-url INSERT_RPC_HERE --broadcast --verify -vvvv` 
-
-
-## Frontend
-
-Polygon deployment is live @ https://lens-hello-world-open-action.vercel.app/
-
-To run locally, clone repo, switch to frontend directory, make sure you have [bun installed](https://bun.sh/docs/installation) and run `bun install && bun run dev` 
-
-Contract address are configured in `frontend/src/constants.ts` 
-
-The `frontend/src/layout` components `Create`, `Act`, and `Events` contain code to create a post with this action, execute this action on a post, and display HelloWorld.sol events respectively. 
-
-Copy `.env.example` to `.env` in frontend directory, input environment variables, and run `source .env` (or equivalent on your OS).
